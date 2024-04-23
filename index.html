@@ -73,12 +73,17 @@
       .wpshop-event__header-svg {
          position: absolute;
          top: -60px;
-         left: 50%;
+         /* left: 50%;
          -webkit-transform: translateX(-50%);
-         transform: translateX(-50%);
+         transform: translateX(-50%); */
          display: flex;
          align-items: center;
-justify-content: center;
+         justify-content: center;
+         -webkit-transform-origin: 50% 50%;
+         -ms-transform-origin: 50% 50%;
+         transform-origin: 50% 50%;
+         -webkit-animation: wpshop-event-text-rotate 14s linear infinite;
+         animation: wpshop-event-text-rotate 14s linear infinite;
       }
 
       .wpshop-event--seo-day .wpshop-event__svg-circle-text {
@@ -87,12 +92,9 @@ justify-content: center;
          font-size: 12px;
          font-weight: 700;
          text-transform: uppercase;
-         -webkit-transform-origin: 50% 50%;
-         -ms-transform-origin: 50% 50%;
-         transform-origin: 50% 50%;
+         
          text-shadow: 1px 1px 2px #ffc848;
-         -webkit-animation: wpshop-event-text-rotate 14s linear infinite;
-         animation: wpshop-event-text-rotate 14s linear infinite;
+         
 
       }
 
