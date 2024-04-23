@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Widget Example</title>
+   <meta name="yandex" content="noindex, nofollow">
+
+   <!-- Базовые стили для блока, сброс свойств, CSS переменные, удалять нельзя, подключается к каждому виджету -->
+   <link rel="stylesheet" href="https://wpshop.ru/tools/widget/base-style.css">
+
+   <!-- Время задержки перед появлением виджета, будет добавлено движком, здесь можно не менять ничего -->
+   <script>var wpshop_event_timeout = 500;</script>
+</head>
+
+<body>
+
+
+   <!-- В родительский блок wpshop-event мы ничего не добавляем и не редактируем его, только меняем {{КОД_СОБЫТИЯ}} -->
+   <!-- Элемент wpshop-event__close нужен для закрытия окна, на нем работают скрипты, не удаляем его и не меняем в HTML -->
+   <!-- Новые стили лежат прям здесь в теге style -->
+
+
+   <style>
+      /* КОД ДЛЯ РЕДАКТИРОВАНИЯ НИЖЕ                       */
+      /* ВСЕ СЕЛЕКТОРЫ ЧЕРЕЗ МОДИФИКАТОР, НАПРИМЕР:        */
+      /* .wpshop-event--new-year .wpshop-event__header { } */
+      /* ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ */
+
+      .wpshop-event--seo-day {
+         width: 180px;
+         height: 310px;
+         padding: 20px 10px;
+         background-image: linear-gradient(#0b309f, #2b3a67);
+         box-shadow: 0 0 30px 2px rgba(2, 26, 37, 0.3);
+         right: 40px;
+      }
+
+      .wpshop-event--seo-day .wpshop-event__decor {
+         z-index: -3;
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+      }
+
+      .wpshop-event--seo-day .wpshop-event__header {
+         color: #3c3744;
+         font-size: 13px;
+         position: absolute;
+         top: -60px;
+         left: calc(50% - 70px);
+      }
+
+      .wpshop-event--seo-day .wpshop-event__header::before {
+         content: '';
+         width: 134px;
+         height: 134px;
+         background-color: #f8fdef;
+         z-index: -1;
+         border-radius: 50%;
+         position: absolute;
+         top: calc(50% - 62px);
+         left: calc(50% - 70px);
+         box-shadow: 0 0 20px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .wpshop-event--seo-day .wpshop-event__header::after {
+         content: 'День SEO';
+         color: #bdede0;
+         width: 65px;
+         height: 16px;
+         font-weight: 800;
+         text-transform: uppercase;
+         position: absolute;
+         top: calc(50% - 6px);
+         left: calc(50% - 34px);
+      }
+
+      .wpshop-event--seo-day .wpshop-event__svg-circle-text {
+         fill: #2b3a67;
+         font-size: 12px;
+         font-weight: 700;
+         text-transform: uppercase;
+         transform-origin: 48% 55%;
+         text-shadow: 1px 1px 2px #7bd2f5;
+         animation: wpshop-event-text-rotate 14s linear infinite;
+      }
+
+      .wpshop-event--seo-day .wpshop-event__text {
+         margin-top: 40px;
+         color: #fff;
+         font-weight: 600;
+         text-align: center;
+      }
+
+      .wpshop-event--seo-day .wpshop-event__text span {
+         font-size: 48px;
+         font-weight: 800;
+         line-height: 0.9;
+      }
+
+      .wpshop-event--seo-day .wpshop-event__text strong {
+         font-size: 24px;
+         font-weight: 800;
+      }
+
+      .wpshop-event--seo-day .wpshop-event__cta {
+         background-color: #bdede0;
+         color: #3c3744;
+         padding: 16px 10px;
+         box-shadow: 1px 2px 16px 1px rgba(0, 0, 0, 0.3);
+         width: 116%;
+         font-size: 14px;
+         position: absolute;
+         bottom: 20px;
+         overflow: hidden;
+      }
+
+      .wpshop-event--seo-day .wpshop-event__cta::after {
+         content: '';
+         width: 40px;
+         height: 100%;
+         transform: skewX(-45deg);
+         position: absolute;
+         top: 0;
+         left: 0;
+         background: linear-gradient(90deg, rgba(206, 235, 238, 0.1), rgba(255, 255, 255, 0.2));
+         animation: wpshop-event-btn-blick 2s linear infinite;
+      }
+
+      .wpshop-event--seo-day .wpshop-event__cta:hover::after {
+         animation: none;
+      }
+
+      @keyframes wpshop-event-text-rotate {
+         0% {
+            transform: rotateZ(0deg);
+         }
+
+         100% {
+            transform: rotateZ(360deg);
+         }
+      }
+
+      @keyframes wpshop-event-btn-blick {
+         0% {
+            left: -150%;
+         }
+
+         100% {
+            left: 150%;
+         }
+      }
+
+
+      /* ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ */
+      /* ЗДЕСЬ ЗАКАНЧИВАЕТСЯ КОД ДЛЯ РЕДАКТИРОВАНИЯ СТИЛЕЙ */
+   </style>
+
+
+   <!--noindex-->
+   <div data-u="#" class="wpshop-event hide js-wpshop-event wpshop-event--seo-day">
+      <div class="wpshop-event__close" onclick="wpshop_event_close('seo-day');return false;">&times;</div>
+
+      <!-- КОД ДЛЯ РЕДАКТИРОВАНИЯ НИЖЕ -->
+      <!-- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ -->
+
+      <div class="wpshop-event__decor">
+         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 183 117">
+            <path fill="#BDEDE0"
+               d="M106.31 23.94a2.36 2.36 0 0 0-3.26.69l-.58.87-18.66-3.1-.26-1a2.36 2.36 0 0 0-4.58 1.15 748.92 748.92 0 0 0 7.64 27.8 2.36 2.36 0 0 0 4.19.69A752 752 0 0 0 107 27.2a2.36 2.36 0 0 0-.69-3.26Zm-42.46-6.1-.62.83-18.45-4.17-.2-1.02a2.36 2.36 0 0 0-4.63.9 731.18 731.18 0 0 0 6.01 28.19 2.36 2.36 0 0 0 4.13.94 733.26 733.26 0 0 0 17.57-22.84 2.36 2.36 0 0 0-3.8-2.8v-.03Zm77.55 9.8a2.36 2.36 0 0 0-3.22.87l-.52.9-18.83-2-.33-.98a2.36 2.36 0 0 0-4.5 1.42c2.9 9.09 6 18.28 9.26 27.3a2.36 2.36 0 0 0 1.97 1.55h.16a2.36 2.36 0 0 0 2.1-1.1 736.37 736.37 0 0 0 14.79-24.74 2.36 2.36 0 0 0-.88-3.22Zm29.73 2.59a1.81 1.81 0 0 0-2.47.67l-.4.7-14.45-1.54-.25-.76a1.81 1.81 0 0 0-3.45 1.1 582.4 582.4 0 0 0 7.1 20.95 1.81 1.81 0 0 0 1.51 1.18h.12a1.8 1.8 0 0 0 1.6-.84c3.9-6.24 7.74-12.63 11.37-18.98a1.84 1.84 0 0 0 .17-1.38 1.8 1.8 0 0 0-.85-1.1ZM29.94 11.77a1.81 1.81 0 0 0-2.56.11l-.54.59L13.07 7.8 13 7a1.81 1.81 0 0 0-3.61.32c.64 7.29 1.42 14.7 2.35 22a1.81 1.81 0 0 0 1.21 1.49l.12.03a1.81 1.81 0 0 0 1.75-.48 565.7 565.7 0 0 0 15.24-16.04 1.81 1.81 0 0 0-.12-2.56Zm146.12 49.27a1.68 1.68 0 0 0-1.75.78c-.12.2-.2.4-.24.63l-.13.75-13.36 3.34-.47-.6a1.72 1.72 0 0 0-1.82-.65 1.7 1.7 0 0 0-1.27 1.47 1.77 1.77 0 0 0 .38 1.3 534.9 534.9 0 0 0 13.1 16.5 1.71 1.71 0 0 0 2.54.1c.23-.24.38-.53.45-.85a545.5 545.5 0 0 0 3.96-20.77c.07-.45-.03-.92-.3-1.3a1.72 1.72 0 0 0-1.1-.7Zm-60.92 13.81a1.7 1.7 0 0 0-1.26.27 1.7 1.7 0 0 0-.7 1.1c-.03.25-.08.5-.13.74l-13.1 3.16-.46-.6a1.7 1.7 0 0 0-1.12-.75 1.66 1.66 0 0 0-1.75.84 1.72 1.72 0 0 0 .2 1.97 546.32 546.32 0 0 0 12.74 16.4 1.7 1.7 0 0 0 1.49.62c.07 0 .14-.02.2-.03a1.67 1.67 0 0 0 1.26-1.3c1.46-6.77 2.8-13.65 4-20.44.07-.45-.03-.9-.29-1.28a1.69 1.69 0 0 0-1.08-.7Zm29.32-6.32a1.84 1.84 0 0 0-2.03 1.58l-.1.8-14.03 4.2-.53-.6a1.83 1.83 0 0 0-3.21 1.04c-.04.48.11.95.43 1.32a575.3 575.3 0 0 0 14.8 16.53 1.83 1.83 0 0 0 3.14-.94 583.27 583.27 0 0 0 3.13-21.92 1.8 1.8 0 0 0-.92-1.8 1.84 1.84 0 0 0-.68-.21ZM87.64 80.44c-.49-.1-1-.03-1.43.22-.43.25-.73.65-.85 1.11l-.2.77-14.92 2.6-.46-.64a1.81 1.81 0 0 0-1.2-.76 1.98 1.98 0 0 0-1.94.78 1.77 1.77 0 0 0-.29 1.35c.05.23.15.45.28.64a569.28 569.28 0 0 0 13.09 17.92c.2.26.45.46.76.58.3.13.63.18.96.14l.13-.01c.35-.06.67-.22.94-.45.26-.22.45-.52.55-.84a555.57 555.57 0 0 0 5.96-21.25 1.8 1.8 0 0 0-.22-1.36c-.26-.4-.68-.69-1.16-.8Zm-30.4 5.52a1.69 1.69 0 0 0-2.02 1.23l-.18.72-13.26 2.35-.41-.6a1.67 1.67 0 0 0-2.33-.46 1.68 1.68 0 0 0-.46 2.32 535.07 535.07 0 0 0 11.72 16.7 1.67 1.67 0 0 0 1.54.68l.11-.01a1.69 1.69 0 0 0 1.32-1.2 530.72 530.72 0 0 0 5.21-19.72 1.66 1.66 0 0 0-1.24-2Zm-28.02 4.42a1.81 1.81 0 0 0-2.17 1.32l-.2.76L12.6 95l-.45-.65a1.8 1.8 0 0 0-2.5-.5 1.8 1.8 0 0 0-.5 2.5c4.06 6.03 8.3 12.08 12.6 17.97a1.8 1.8 0 0 0 1.66.73l.12-.02a1.8 1.8 0 0 0 1.42-1.28c2-7.02 3.89-14.16 5.6-21.21a1.79 1.79 0 0 0-1.33-2.16Z" />
+            <path fill="#F5FFFC"
+               d="M178.93 35.98h-.1A681.19 681.19 0 0 1 4.17 6.4a3.08 3.08 0 0 1-1.8-1.56 3.5 3.5 0 0 1-.27-2.47c.22-.83.74-1.53 1.43-1.95.7-.42 1.52-.53 2.3-.3a675.46 675.46 0 0 0 173.19 29.36c.8.01 1.56.37 2.12.99s.86 1.46.85 2.32a3.4 3.4 0 0 1-.92 2.3 2.9 2.9 0 0 1-2.15.9v-.01ZM5.4 95.83c-.4.03-.8 0-1.17-.08a3.23 3.23 0 0 1-1.02-.43 2.2 2.2 0 0 1-1.04-1.6A2.1 2.1 0 0 1 2.91 92c.53-.49 1.27-.8 2.07-.86a918.51 918.51 0 0 0 171.78-32.8 3.8 3.8 0 0 1 2.3.06c.73.26 1.28.73 1.54 1.32.26.58.2 1.23-.15 1.8a3.02 3.02 0 0 1-1.74 1.24A926.33 926.33 0 0 1 5.51 95.8l-.1.02Z" />
+         </svg>
+      </div>
+
+      <div class="wpshop-event__header">
+         <svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" fill="none">
+            <path id="wpshop-event-seo-day-svg-circle" d="M 21 90 A 50 50 0 1 1 22 94"></path>
+            <text class="wpshop-event__svg-circle-text">
+               <textPath href="#wpshop-event-seo-day-svg-circle">
+                  Время сделать подарок своему WordPress!
+               </textPath>
+            </text>
+         </svg>
+      </div>
+      <div class="wpshop-event__text">
+         <p><span>-20%</span><br><strong>на премиум</strong><br>шаблоны и плагины</p>
+      </div>
+
+      <div class="wpshop-event__cta">Порадуй свой сайт &#8921;</div>
+
+      <!-- ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ -->
+      <!-- ЗДЕСЬ ЗАКАНЧИВАЕТСЯ КОД ДЛЯ РЕДАКТИРОВАНИЯ, НИЖЕ ТЕХНИЧЕСКАЯ ИНФОРМАЦИЯ -->
+
+   </div>
+   <!--/noindex-->
+
+
+
+
+
+
+
+
+   <!-- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ -->
+
+   <!-- Базовый скрипт, в нем инициализация виджета, его удалять нельзя -->
+   <!-- По таймауту из переменной wpshop_event_timeout у блока js-wpshop-event удаляется класс hide -->
+   <!-- Там же скрипт закрытия окна и клика по виджету (переход по псевдоссылке) -->
+   <script src="https://wpshop.ru/tools/widget/base-script.js"></script>
+
+
+
+   <!-- Ниже расположена рыба сайта, для проверки работы виджета с разными элементами под ним -->
+   <!-- Код ниже редактировать не нужно и он в итоговый виджет не пойдет -->
+
+   <style>
+      h2 {
+         margin-top: 40px;
+      }
+
+      code {
+         background: #ffe7c7;
+         padding: 2px 5px;
+         border-radius: 3px;
+      }
+
+      .site-example {
+         max-width: 1600px;
+         margin: 30px auto 0;
+         padding: 20px;
+         border: 1px solid #ccc;
+         border-radius: 5px;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+      }
+
+      .site-example-header {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         padding: 30px 20px;
+         margin-bottom: 20px;
+         background: #edf6fc;
+      }
+
+      .site-example-logo {
+         font-size: 24px;
+         font-weight: bold;
+      }
+
+      nav ul {
+         display: flex;
+         list-style: none;
+         padding: 0;
+         margin: 0;
+      }
+
+      @media (max-width: 768px) {
+         nav ul {
+            flex-direction: column;
+         }
+      }
+
+      nav ul li {
+         margin-right: 20px;
+      }
+
+      nav ul li a {
+         text-decoration: none;
+         color: #000;
+      }
+
+      nav ul li a:hover {
+         text-decoration: underline;
+      }
+
+      main {
+         display: flex;
+         justify-content: space-between;
+      }
+
+      @media (max-width: 768px) {
+         main {
+            flex-direction: column;
+         }
+      }
+
+      .site-example-content {
+         flex: 2;
+         padding-left: 30px;
+         padding-right: 30px;
+      }
+
+      /* ol beautiful styles */
+      ol {
+         counter-reset: item;
+         list-style: none;
+         padding: 0;
+      }
+
+      ol li {
+         position: relative;
+         counter-increment: item;
+         margin-bottom: 0.6em;
+         padding: 10px 0 10px 50px;
+      }
+
+      ol li:before {
+         position: absolute;
+         top: .3em;
+         left: 0;
+         content: counters(item, ".");
+         display: inline-block;
+         width: 2em;
+         height: 2em;
+         text-align: center;
+         padding-top: .4em;
+         background: #064eea;
+         color: white;
+         border-radius: 999px;
+         box-sizing: border-box;
+      }
+
+      .site-example-sidebar {
+         flex: 1;
+         padding: 20px;
+         border: 1px solid #ccc;
+         border-radius: 5px;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .site-example-widget {
+         margin-top: 20px;
+         padding: 20px;
+         border: 1px solid #ccc;
+         border-radius: 5px;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .site-example-widget--dark {
+         background: #244256;
+         color: #fff;
+      }
+
+      footer {
+         margin-top: 20px;
+         padding-top: 20px;
+         border-top: 1px solid #ccc;
+         text-align: center;
+      }
+
+      .site-example-footer-menu {
+         display: flex;
+         justify-content: space-around;
+         list-style: none;
+         padding: 0;
+         margin: 0;
+      }
+   </style>
+   <div class="site-example">
+      <header class="site-example-header">
+         <div class="site-example-logo">WordPress Уроки</div>
+         <nav>
+            <ul>
+               <li><a href="#">Главная</a></li>
+               <li><a href="#">Уроки</a></li>
+               <li><a href="#">Плагины</a></li>
+               <li><a href="#">Темы</a></li>
+               <li><a href="#">О нас</a></li>
+            </ul>
+         </nav>
+      </header>
+      <main>
+         <div class="site-example-content">
+            <p>Справа внизу стандартный виджет с базовыми настройками — цвета, положение, скрипты появления и закрытия
+               окна. Все базовые стили можно менять, с помощью переменных CSS и просто с помощью свойств. Вы можете
+               выбрать любое положение виджета и расположение. Единственное, он не должен быть слишком большим, не
+               должен быть по центру и не должен перекрывать много контента.</p>
+
+            <h1>Требования к виджету:</h1>
+            <ol>
+               <li>Виджет должен быть компактного размера и может размещаться у края экрана. Не выводим его как попап
+                  посередине.</li>
+               <li>Можно экспериментировать с расположением и делать слева, справа. Снизу на всю ширину, но небольшой по
+                  высоте. Либо сверху.</li>
+               <li>У виджета есть обязательные элементы, которые в коде отдельно выделены, их нужно оставить как есть,
+                  тк весь виджет работает на своем движке.</li>
+               <li>В идеале картинки использовать SVG, чтобы размещать сразу в HTML, без внешних файлов. <a
+                     href="https://jakearchibald.github.io/svgomg/" target="_blank">Оптимизируйте SVG</a> перед
+                  добавлением.</li>
+               <li>Все картинки должны быть свободными для коммерческого использования, ссылку на картинку обязательно
+                  нужно предоставить с результатом.</li>
+            </ol>
+
+            <h2>Чек-лист для проверки виджета:</h2>
+            <ol>
+               <li>Виджет должен хорошо смотреться на мобильных 320px.</li>
+               <li>Виджет должен быть достаточно компактным и не перекрывать сильно контент.</li>
+               <li>На виджете должна быть анимация, чтобы привлекать внимание.</li>
+               <li>На виджете обязательно должна быть кнопка закрытия</li>
+            </ol>
+
+            <h2>Техническая информация по коду</h2>
+            <ol>
+               <li>Основной, родительской блок виджета — <code>.wpshop-event</code>.</li>
+               <li>У него есть дата-атрибут <code>data-u="#"</code>, в котором будет ссылка, это вставит потом сам
+                  движок</li>
+               <li>Мы ему меняем только класс-модификатор <code>wpshop-event--{{КОД_СОБЫТИЯ}}</code></li>
+               <li>И для этого модификатора мы пишем все стили, которые меняем,
+                  например:<br><code>.wpshop-event--new-year .wpshop-event__header { ... }</code></li>
+               <li><code>{{КОД_СОБЫТИЯ}}</code> — это название маркетингового события на латинице и со знаком
+                  минус,<br>например, black-friday, 8-march, spring, new-year.</li>
+               <li>У блока обязательно должен быть элемент <code>.wpshop-event__close</code>, он закрывает наш виджет по
+                  крестику, у него тоже нужно поменять {{КОД_СОБЫТИЯ}}.</li>
+               <li>У виджета по умолчанию задана высота в CSS-переменной <code>--wpshop-event-height</code>, можно
+                  установить в <code>auto</code>.</li>
+            </ol>
+
+         </div>
+         <div class="site-example-sidebar">
+            <h2>Сайдбар</h2>
+            <p>Часто в сайдбаре бывают баннеры, ссылки, картинки, поэтому он заполнен различными элементами для
+               проверки.</p>
+
+            <div class="site-example-widget">
+               <h3>Виджет</h3>
+               <p>WordPress — свободное программное обеспечение, которое поможет вам создать красивый сайт, блог или
+                  веб-приложение.</p>
+            </div>
+
+            <div class="site-example-widget site-example-widget--dark">
+               <h3>Виджет</h3>
+               <p>WordPress — свободное программное обеспечение, которое поможет вам создать красивый сайт, блог или
+                  веб-приложение.</p>
+            </div>
+
+            <div class="site-example-widget site-example-widget--dark" style="background: #2e5b10;">
+               <h3>Виджет</h3>
+               <p>WordPress — свободное программное обеспечение, которое поможет вам создать красивый сайт, блог или
+                  веб-приложение.</p>
+            </div>
+
+            <div class="site-example-widget site-example-widget--dark" style="background: #5b1046;">
+               <h3>Виджет</h3>
+               <p>WordPress — свободное программное обеспечение, которое поможет вам создать красивый сайт, блог или
+                  веб-приложение.</p>
+            </div>
+
+            <div class="site-example-widget">
+               <h3>Виджет</h3>
+               <p>WordPress — свободное программное обеспечение, которое поможет вам создать красивый сайт, блог или
+                  веб-приложение.</p>
+            </div>
+
+            <div class="site-example-widget" style="background: #ffdd79;">
+               <h3>Виджет</h3>
+               <p>WordPress — свободное программное обеспечение, которое поможет вам создать красивый сайт, блог или
+                  веб-приложение.</p>
+            </div>
+         </div>
+      </main>
+      <footer>
+         <div class="site-example-footer-menu">
+            <a href="#">Главная</a>
+            <a href="#">Уроки</a>
+            <a href="#">Плагины</a>
+            <a href="#">Темы</a>
+            <a href="#">О нас</a>
+         </div>
+         <p>© 2024 WordPress Уроки</p>
+      </footer>
+   </div>
+
+</body>
+
+</html>
