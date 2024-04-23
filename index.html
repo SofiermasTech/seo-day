@@ -53,31 +53,26 @@
       .wpshop-event--seo-day .wpshop-event__header {
          width: 136px;
          height: 136px;
+         color: #3c3744;
+         font-size: 13px;
+         font-weight: 800;
+         text-transform: uppercase;
          position: absolute;
          top: -60px;
          left: calc(50% - 68px);
          background-color: #f8fdef;
-         z-index: -1;
          border-radius: 50%;
          -webkit-box-shadow: 0 0 20px 4px rgba(0, 0, 0, 0.3);
          box-shadow: 0 0 20px 4px rgba(0, 0, 0, 0.3);
+         display: flex;
+         align-items: center;
+         justify-content: center;
       }
 
-      .wpshop-event--seo-day .wpshop-event__header::after {
-         content: 'День SEO';
-         color: #3c3744;
-         font-size: 13px;
-         /* width: 65px;
-         height: 16px; */
-         font-weight: 800;
-         text-transform: uppercase;
+      .wpshop-event__header-svg {
          position: absolute;
-         top: 50%;
-         left: 50%;
-         -webkit-transform: translate(-50%, -50%);
-         -ms-transform: translate(-50%, -50%);
-         transform: translate(-50%, -50%);
-         z-index: 2;
+         top: -60px;
+         left: calc(50% - 68px);
       }
 
       .wpshop-event--seo-day .wpshop-event__svg-circle-text {
@@ -91,7 +86,7 @@
          text-shadow: 1px 1px 2px #ffc848;
          -webkit-animation: wpshop-event-text-rotate 14s linear infinite;
          animation: wpshop-event-text-rotate 14s linear infinite;
-         z-index: 1;
+         z-index: 2;
       }
 
       .wpshop-event--seo-day .wpshop-event__text {
@@ -182,16 +177,15 @@
          </svg>
       </div>
 
-      <div class="wpshop-event__header">
-         <svg class="wpshop-event__header-svg" xmlns="http://www.w3.org/2000/svg" width="136" height="136" fill="none">
-            <path id="wpshop-event-seo-day-svg-circle" d="M 20 90 A 53 53 0 1 1 22 94"></path>
-            <text class="wpshop-event__svg-circle-text">
-               <textPath href="#wpshop-event-seo-day-svg-circle">
-                  Время сделать подарок своему WordPress!
-               </textPath>
-            </text>
-         </svg>
-      </div>
+      <div class="wpshop-event__header">День SEO </div>
+      <svg class="wpshop-event__header-svg" xmlns="http://www.w3.org/2000/svg" width="136" height="136" fill="none">
+         <path id="wpshop-event-seo-day-svg-circle" d="M 20 90 A 53 53 0 1 1 22 94"></path>
+         <text class="wpshop-event__svg-circle-text">
+            <textPath href="#wpshop-event-seo-day-svg-circle">
+               Время сделать подарок своему WordPress!
+            </textPath>
+         </text>
+      </svg>
       <div class="wpshop-event__text">
          <p><span>-20%</span><br><strong>на премиум</strong><br>шаблоны и плагины</p>
       </div>
