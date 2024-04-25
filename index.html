@@ -50,45 +50,44 @@
       }
 
       .wpshop-event--seo-day .wpshop-event__header {
-         position: absolute;
-         top: -70px;
-         left: -50px;
-      }
-
-      .wpshop-event--seo-day .wpshop-event__header::before {
-         content: '';
-         width: 134px;
-         height: 134px;
-         background-color: #d7263d;
-         z-index: -2;
-         border-radius: 50%;
-         position: absolute;
-         top: calc(50% - 62px);
-         left: calc(50% - 70px);
-         box-shadow: 0 0 20px 4px rgba(0, 0, 0, 0.2);
-      }
-
-      .wpshop-event--seo-day .wpshop-event__header::after {
-         content: 'День SEO';
-         color: #fff;
-         width: 65px;
-         height: 16px;
+         width: 136px;
+         height: 136px;
+         color: #ffffff;
          font-size: 13px;
          font-weight: 800;
          text-transform: uppercase;
          position: absolute;
-         top: calc(50% - 6px);
-         left: calc(50% - 33px);
+         top: -70px;
+         left: -50px;
+         background-color: #d7263d;
+         border-radius: 50%;
+         box-shadow: 0 0 20px 4px rgba(0, 0, 0, 0.3);
+         display: flex;
+         align-items: center;
+         justify-content: center;
+      }
+
+      .wpshop-event--seo-day .wpshop-event__header-svg {
+         position: absolute;
+         top: -70px;
+         left: -50px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         -webkit-transform-origin: 50% 50%;
+         transform-origin: 50% 50%;
+         -webkit-animation: wpshop-event-text-rotate 14s linear infinite;
+         animation: wpshop-event-text-rotate 14s linear infinite;
       }
 
       .wpshop-event--seo-day .wpshop-event__svg-circle-text {
-         fill: #fff;
+         display: inline-block;
+         fill: #ffffff;
          font-size: 12px;
          font-weight: 700;
          text-transform: uppercase;
-         transform-origin: 48% 55%;
-         animation: wpshop-event-text-rotate 12s linear infinite;
       }
+
 
       .wpshop-event--seo-day .wpshop-event__text {
          margin-top: 40px;
@@ -136,6 +135,18 @@
          animation: none;
       }
 
+      @-webkit-keyframes wpshop-event-text-rotate {
+         0% {
+            -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+         }
+
+         100% {
+            -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg);
+         }
+      }
+
       @keyframes wpshop-event-text-rotate {
          0% {
             transform: rotateZ(0deg);
@@ -178,16 +189,15 @@
          </svg>
       </div>
 
-      <div class="wpshop-event__header">
-         <svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" fill="none">
-            <path id="wpshop-event-seo-day-svg-circle" d="M 21 90 A 50 50 0 1 1 22 94"></path>
-            <text class="wpshop-event__svg-circle-text">
-               <textPath href="#wpshop-event-seo-day-svg-circle">
-                  Время сделать подарок своему WordPress!
-               </textPath>
-            </text>
-         </svg>
-      </div>
+      <div class="wpshop-event__header">День SEO</div>
+      <svg class="wpshop-event__header-svg" xmlns="http://www.w3.org/2000/svg" width="136" height="136" fill="none">
+         <path id="wpshop-event-seo-day-svg-circle" d="M 20 90 A 53 53 0 1 1 22 94"></path>
+         <text class="wpshop-event__svg-circle-text">
+            <textPath href="#wpshop-event-seo-day-svg-circle">
+               Время сделать подарок своему WordPress!
+            </textPath>
+         </text>
+      </svg>
       <div class="wpshop-event__text">
          <p><span>-20%</span><br><strong>на премиум</strong> шаблоны и плагины</p>
       </div>
