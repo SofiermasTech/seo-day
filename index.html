@@ -156,42 +156,89 @@
          animation: none;
       }
 
-      @keyframes wpshop-event-flowers {
+      @-webkit-keyframes wpshop-event-flowers {
          0% {
-            transform: scale(0.8);
+            -webkit-transform: scale(0.8);
+                    transform: scale(0.8);
             -webkit-transform: rotateZ(0deg);
-            transform: rotateZ(0deg);
+                    transform: rotateZ(0deg);
          }
 
          70% {
             -webkit-transform: rotateZ(360deg);
-            transform: rotateZ(360deg);
+                    transform: rotateZ(360deg);
          }
 
          100% {
             top: 140px;
-            transform: scale(1.5);
+            -webkit-transform: scale(1.5);
+                    transform: scale(1.5);
+         }
+      }
+
+      @keyframes wpshop-event-flowers {
+         0% {
+            -webkit-transform: scale(0.8);
+                    transform: scale(0.8);
+            -webkit-transform: rotateZ(0deg);
+                    transform: rotateZ(0deg);
+         }
+
+         70% {
+            -webkit-transform: rotateZ(360deg);
+                    transform: rotateZ(360deg);
+         }
+
+         100% {
+            top: 140px;
+            -webkit-transform: scale(1.5);
+                    transform: scale(1.5);
+         }
+      }
+
+      @-webkit-keyframes wpshop-event-flowers-2 {
+         0% {
+            -webkit-transform: scale(0.9);
+                    transform: scale(0.9);
+         }
+
+         20% {
+            -webkit-transform: rotateZ(0deg);
+                    transform: rotateZ(0deg);
+         }
+
+         70% {
+            -webkit-transform: rotateZ(360deg);
+                    transform: rotateZ(360deg);
+         }
+
+         100% {
+            top: 0;
+            -webkit-transform: scale(1.4);
+                    transform: scale(1.4);
          }
       }
 
       @keyframes wpshop-event-flowers-2 {
          0% {
-            transform: scale(0.9);
+            -webkit-transform: scale(0.9);
+                    transform: scale(0.9);
          }
 
          20% {
             -webkit-transform: rotateZ(0deg);
-            transform: rotateZ(0deg);
+                    transform: rotateZ(0deg);
          }
 
          70% {
             -webkit-transform: rotateZ(360deg);
-            transform: rotateZ(360deg);
+                    transform: rotateZ(360deg);
          }
 
          100% {
             top: 0;
-            transform: scale(1.4);
+            -webkit-transform: scale(1.4);
+                    transform: scale(1.4);
          }
       }
 
