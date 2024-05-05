@@ -69,7 +69,9 @@
          font-size: 12px;
          font-weight: 700;
          text-transform: uppercase;
+         -webkit-transform-origin: 50% 50%;
          transform-origin: 50% 50%;
+         -webkit-animation: wpshop-event-text-rotate 14s linear infinite;
          animation: wpshop-event-text-rotate 14s linear infinite;
       }
 
@@ -211,13 +213,25 @@
          }
       }
 
-      @keyframes wpshop-event-text-rotate {
+      @-webkit-keyframes wpshop-event-text-rotate {
          0% {
+            -webkit-transform: rotateZ(0deg);
             transform: rotateZ(0deg);
          }
 
          100% {
+            -webkit-transform: rotateZ(360deg);
             transform: rotateZ(360deg);
+         }
+      }
+
+      @keyframes wpshop-event-text-rotate {
+         0% {
+            transform: rotate(0deg);
+         }
+
+         100% {
+            transform: rotate(360deg);
          }
       }
 
