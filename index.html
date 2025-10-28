@@ -2,530 +2,935 @@
 <html lang="ru">
 
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <title>Widget Example</title>
-   <meta name="yandex" content="noindex, nofollow">
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Widget Example</title>
+  <meta name="yandex" content="noindex, nofollow">
 
-   <!-- Базовые стили для блока, сброс свойств, CSS переменные, удалять нельзя, подключается к каждому виджету -->
-   <link rel="stylesheet" href="https://wpshop.ru/tools/widget/base-style.css">
+  <!-- Базовые стили для блока, сброс свойств, CSS переменные, удалять нельзя, подключается к каждому виджету -->
+  <link rel="stylesheet" href="https://wpshop.ru/tools/widget/base-style.css">
 
-   <!-- Время задержки перед появлением виджета, будет добавлено движком, здесь можно не менять ничего -->
-   <script>
-      var wpshop_event_name = '{{КОД_СОБЫТИЯ}}';
-      var wpshop_event_timeout = 500;
-   </script>
+  <!-- Время задержки перед появлением виджета, будет добавлено движком, здесь можно не менять ничего -->
+  <script>
+    var wpshop_event_name = '{{КОД_СОБЫТИЯ}}';
+    var wpshop_event_timeout = 500;
+  </script>
 </head>
 
 <body>
 
 
-   <!-- В родительский блок wpshop-event мы ничего не добавляем и не редактируем его, только меняем {{КОД_СОБЫТИЯ}} -->
-   <!-- Элемент wpshop-event__close нужен для закрытия окна, на нем работают скрипты, не удаляем его и не меняем в HTML -->
-   <!-- Новые стили лежат прям здесь в теге style -->
+  <!-- В родительский блок wpshop-event мы ничего не добавляем и не редактируем его, только меняем {{КОД_СОБЫТИЯ}} -->
+  <!-- Элемент wpshop-event__close нужен для закрытия окна, на нем работают скрипты, не удаляем его и не меняем в HTML -->
+  <!-- Новые стили лежат прям здесь в теге style -->
 
 
-   <style>
-      /* КОД ДЛЯ РЕДАКТИРОВАНИЯ НИЖЕ                       */
-      /* ВСЕ СЕЛЕКТОРЫ ЧЕРЕЗ МОДИФИКАТОР, НАПРИМЕР:        */
-      /* .wpshop-event--new-year .wpshop-event__header { } */
-      /* ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ */
+  <style>
+    /* КОД ДЛЯ РЕДАКТИРОВАНИЯ НИЖЕ                       */
+    /* ВСЕ СЕЛЕКТОРЫ ЧЕРЕЗ МОДИФИКАТОР, НАПРИМЕР:        */
+    /* .wpshop-event--new-year .wpshop-event__header { } */
+    /* ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ */
 
-      .wpshop-event--summer-promo-templates {
-         width: 260px;
-         height: 270px;
-         padding: 10px 4px;
-         background-color: transparent;
-         backdrop-filter: blur(5px);
-         box-shadow: 1px 2px 10px 2px rgba(72, 102, 134, 0.2);
-         display: grid;
-         gap: 2%;
-         grid-template-columns: repeat(2, 48%);
-         grid-template-rows: repeat(4, 23%);
-         grid-auto-flow: row;
-         justify-content: center;
-         align-items: center;
-         grid-template-areas:
-            "subtext subtext"
-            "header text"
-            "header text"
-            "btn btn";
+    .wpshop-event--wpgpt-1 {
+      width: 300px;
+      height: 400px;
+      padding: 16px;
+      background-image: linear-gradient(180deg, #ef8d74 0%, #ff3f74 100%);
+      box-shadow: 0 0 50px 3px rgba(63, 8, 35, 0.4);
+      justify-content: flex-start;
+      overflow: hidden;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__close {
+      top: 0;
+      right: 8px;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__header {
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      text-align: center;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__header p {
+      margin: 0;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__header span {
+      position: absolute;
+      z-index: -1;
+      opacity: 0.7;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__header span:nth-of-type(1) {
+      left: -42px;
+      top: -2px;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__header span:nth-of-type(1) svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__header span:nth-of-type(2) {
+      right: -42px;
+      top: 16px;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__header span:nth-of-type(2) svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__content {
+      width: 100%;
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: relative;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__content-item {
+      padding: 6px 12px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(1) {
+      margin-right: auto;
+      margin-left: 12px;
+      transform: rotate(-6deg);
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(1) .wpshop-event__content-item-back {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(0);
+      z-index: 1;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(4) .wpshop-event__content-item-back {
+      position: absolute;
+      left: -36px;
+      bottom: -20px;
+
+      z-index: -1;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(2) {
+      margin-left: auto;
+      margin-right: 8px;
+      transform: rotate(2deg);
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(3) {
+      margin-right: auto;
+      margin-left: 16px;
+      transform: rotate(-3deg);
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(4) {
+      margin-left: auto;
+      margin-right: 20px;
+      transform: rotate(-3deg);
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__content-item .wpshop-event__content-item-arrow {
+      position: absolute;
+      z-index: -1;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(1) .wpshop-event__content-item-arrow {
+      right: -36px;
+      top: 50%;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(2) .wpshop-event__content-item-arrow {
+      right: 30%;
+      bottom: -28px;
+      transform: rotate(-4deg);
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(3) .wpshop-event__content-item-arrow {
+      left: -8px;
+      bottom: -36px;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__content-item p {
+      margin-block: 0 4px;
+      font-weight: 400;
+      font-size: 12px;
+      text-align: center;
+      color: #000;
+      position: relative;
+      z-index: 2;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__content-item.content-accent p {
+      color: #ff2b65;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__content-item span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__text {
+      position: absolute;
+      right: 0;
+      bottom: -16px;
+      font-size: 10px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__title {
+      margin-top: auto;
+      font-weight: 900;
+      font-size: 40px;
+      color: #fff;
+      position: relative;
+      z-index: 7;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__subtitle {
+      max-width: 85%;
+      font-weight: 400;
+      font-size: 14px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__cta {
+      margin-top: 16px;
+      background-color: #fff;
+      color: #000;
+      padding: 12px 20px;
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 700;
+      position: relative;
+      z-index: 8;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 0 10px 1px rgba(255, 255, 255, 0.3);
+      width: 80%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__cta::after {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 300%;
+      width: 150%;
+      top: 0;
+      left: -100%;
+      background: rgba(255, 209, 225, 0.8);
+      border-radius: 100%;
+      -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+      transform: scale(0);
+      animation: wpshop-event-btn-blick 6s linear infinite;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__background {
+      position: absolute;
+      opacity: .8;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__background.back-1 {
+      right: -12%;
+      bottom: 20%;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__background.back-2 {
+      left: 12px;
+      bottom: 15%;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__background.back-2 svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__cta:hover::after {
+      animation: none;
+    }
+
+    @keyframes wpshop-event-btn-blick {
+      20% {
+        opacity: 0;
+        transform: scale(2.5);
       }
 
-      .wpshop-event--summer-promo-templates .wpshop-event__subtext {
-         grid-area: subtext;
-         width: 100%;
-         height: 100%;
-         background-color: #ffe38e;
-         box-shadow: 1px 2px 10px 2px rgba(93, 88, 73, 0.2);
-         color: #3c3744;
-         border-radius: 8px;
-         font-size: 20px;
-         font-weight: 800;
-         padding: 16px 10px;
-         text-align: center;
+      100% {
+        opacity: 0;
+        transform: scale(2.5);
+      }
+    }
+
+    @media screen and (max-width: 1024px) {
+      .wpshop-event--wpgpt-1 {
+        height: 380px;
       }
 
-      .wpshop-event--summer-promo-templates .wpshop-event__subtext p {
-         margin: 0;
+      .wpshop-event--wpgpt-1 .wpshop-event__title {
+        font-size: 32px;
       }
 
-      .wpshop-event--summer-promo-templates .wpshop-event__header {
-         grid-area: header;
-         width: 100%;
-         height: 100%;
-         background-color: #B8EFCF;
-         box-shadow: 1px 2px 10px 2px rgba(93, 88, 73, 0.2);
-         border-radius: 8px;
-         color: #3c3744;
-         font-size: 16px;
-         font-weight: 600;
-         line-height: 1.2;
-         text-align: center;
-         padding: 10px 6px;
+    }
+
+    @media screen and (max-width: 600px) {
+      .wpshop-event--wpgpt-1 {
+        width: 310px;
+        height: 150px;
+        padding: 8px;
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        grid-template-rows: auto auto 1fr auto;
+        justify-items: center;
+        gap: 2px 8px;
+        grid-template-areas:
+          'cont header'
+          'cont title'
+          'cont subt'
+          'cont btn';
       }
 
-      .wpshop-event--summer-promo-templates .wpshop-event__header-img {
-         position: relative;
-         width: 46px;
-         height: 46px;
-         background-color: #3c3744;
-         border-radius: 50%;
-         margin: 0 auto 10px;
+      .wpshop-event--wpgpt-1 .wpshop-event__header {
+        margin-top: 20px;
+        grid-area: header;
+        font-size: 6px;
+        font-weight: 600;
+        text-transform: none;
+        position: relative;
+        left: 0;
+        top: 0;
+        opacity: 0.8;
       }
 
-      .wpshop-event--summer-promo-templates .wpshop-event__header-img::before {
-         content: '';
-         position: absolute;
-         top: 0;
-         bottom: 0;
-         left: 0;
-         right: 0;
-         margin: auto;
-         width: 40px;
-         height: 40px;
-         border-radius: 50%;
-         border: 2px solid #fff;
+      .wpshop-event--wpgpt-1 .wpshop-event__header span:nth-of-type(1) {
+        left: -34px;
+        top: -18px;
       }
 
-      .wpshop-event--summer-promo-templates .wpshop-event__header-img::after {
-         content: '';
-         position: absolute;
-         left: 50%;
-         top: 6px;
-         display: block;
-         width: 1px;
-         height: 16px;
-         background-color: #fff;
-         border-radius: 2px;
-         transform-origin: 0% 100%;
-         animation: wpshop-event-clock 2s linear infinite;
+      .wpshop-event--wpgpt-1 .wpshop-event__header span:nth-of-type(2) {
+        display: none;
       }
 
-      .wpshop-event--summer-promo-templates .wpshop-event__header p {
-         margin: 0;
+      .wpshop-event--wpgpt-1 .wpshop-event__content {
+        grid-area: cont;
+        align-self: flex-start;
+        margin-top: 8px;
+        gap: 8px;
       }
 
-      .wpshop-event--summer-promo-templates .wpshop-event__header span {
-         font-size: 18px;
-         font-weight: 800;
+      .wpshop-event--wpgpt-1 .wpshop-event__content-item {
+        padding: 4px 6px;
+        gap: 6px;
+        justify-content: center;
       }
 
-      .wpshop-event--summer-promo-templates .wpshop-event__text {
-         grid-area: text;
-         width: 100%;
-         height: 100%;
-         background-color: #C5DDFF;
-         box-shadow: 1px 2px 10px 2px rgba(72, 102, 134, 0.2);
-         border-radius: 8px;
-         color: #3c3744;
-         font-size: 16px;
-         font-weight: 600;
-         line-height: 1.1;
-         text-align: center;
-         padding: 10px 6px;
+      .wpshop-event--wpgpt-1 .wpshop-event__content-item p {
+        font-size: 9px;
+        margin-bottom: 2px;
       }
 
-      .wpshop-event--summer-promo-templates .wpshop-event__text span {
-         display: inline-block;
-         font-size: 40px;
-         font-weight: 800;
-         line-height: 1.2;
-         margin-bottom: 9px;
+      .wpshop-event--wpgpt-1 .wpshop-event__content-item.content-accent p {
+        font-size: 10px;
       }
 
-      .wpshop-event--summer-promo-templates .wpshop-event__text p {
-         margin: 0;
+      .wpshop-event--wpgpt-1 .wpshop-event__content-item svg:not([class]) {
+        width: 12px;
+        height: 12px;
       }
 
-      .wpshop-event--summer-promo-templates .wpshop-event__cta {
-         grid-area: btn;
-         background-color: #F7BC75;
-         color: #3c3744;
-         border-radius: 8px;
-         box-shadow: 1px 2px 16px 1px rgba(0, 0, 0, 0.3);
-         width: 100%;
-         height: 100%;
-         font-size: 20px;
-         font-weight: 800;
-         text-align: center;
-         position: relative;
-         overflow: hidden;
-         padding: 17px 6px;
+      .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(1) {
+        width: 100%;
+        margin-left: 0px;
+        transform: rotate(1deg) scale(0.9);
+        ;
       }
 
-      .wpshop-event--summer-promo-templates .wpshop-event__cta::after {
-         content: '';
-         position: absolute;
-         height: 300%;
-         width: 150%;
-         top: 0;
-         left: -100%;
-         background: rgba(255, 255, 255, 0.8);
-         border-radius: 100%;
-         transform: scale(0);
-         animation: wpshop-event-btn-blick 4s linear infinite;
+      .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(2) {
+        margin-right: 16px;
+        transform: rotate(0deg);
+        margin-top: 0;
       }
 
-      .wpshop-event--summer-promo-templates .wpshop-event__cta:hover::after {
-         animation: none;
+      .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(1) .wpshop-event__content-item-arrow {
+        width: 24px;
+        height: 24px;
+        right: 85%;
+        top: 25px;
+        transform: scale(-1, 1) rotate(90deg);
+        transform-origin: center;
       }
 
+      .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(2) .wpshop-event__content-item-arrow {
+        width: 24px;
+        height: 24px;
+        right: 10%;
+        bottom: -26px;
+        transform: rotate(-22deg);
 
-      @keyframes wpshop-event-clock {
-         to {
-            transform: rotate(359deg);
-         }
       }
 
-      @keyframes wpshop-event-btn-blick {
-         20% {
-            opacity: 0;
-            transform: scale(2.5);
-         }
-
-         100% {
-            opacity: 0;
-            transform: scale(2.5);
-         }
+      .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(3) .wpshop-event__content-item-arrow {
+        display: none;
       }
 
+      .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(3) {
+        margin-left: 8px;
+        transform: rotate(-1deg);
+        margin-top: 0px;
+      }
+
+      .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(4) {
+        margin-top: 0;
+        margin-left: -8px;
+        transform: rotate(-2deg) scale(0.8);
+      }
+
+      .wpshop-event--wpgpt-1 .wpshop-event__text {
+        font-size: 7px;
+        opacity: 0.8;
+        right: 24px;
+        bottom: -10px;
+      }
+
+      .wpshop-event--wpgpt-1 .wpshop-event__title {
+        grid-area: title;
+        margin-top: -4px;
+        font-size: 24px;
+        align-self: flex-start;
+      }
+
+      .wpshop-event--wpgpt-1 .wpshop-event__subtitle {
+        grid-area: subt;
+        max-width: 100%;
+        font-weight: 400;
+        font-size: 10px;
+        align-self: flex-start;
+      }
+
+      .wpshop-event--wpgpt-1 .wpshop-event__cta {
+        grid-area: btn;
+        margin-top: 0;
+        width: 100%;
+        position: relative;
+        bottom: 10px;
+        right: 0;
+        padding: 6px 12px;
+        font-size: 9px;
+        border-radius: 4px;
+      }
+
+      .wpshop-event--wpgpt-1 .wpshop-event__cta span:last-child {
+        display: none;
+      }
+
+      .wpshop-event--wpgpt-1 .wpshop-event__background.back-1 {
+        bottom: 22%;
+      }
+
+      .wpshop-event--wpgpt-1 .wpshop-event__background.back-2 {
+        left: 12px;
+        bottom: 4px;
+      }
+
+      .wpshop-event--wpgpt-1 .wpshop-event__background.back-2 svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    @media screen and (max-width: 380px) {
+      .wpshop-event--wpgpt-1 {
+        width: 290px;
+        height: 135px;
+        right: 16px;
+      }
+
+      .wpshop-event--wpgpt-1 .wpshop-event__header {
+        margin-top: 16px;
+      }
+
+      .wpshop-event--wpgpt-1 .wpshop-event__subtitle {
+        font-size: 9px;
+      }
+
+      .wpshop-event--wpgpt-1 .wpshop-event__content {
+        gap: 6px;
+      }
+
+      .wpshop-event--wpgpt-1 .wpshop-event__content-item {
+        padding: 4px 6px;
+      }
+
+      .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(2) {
+        margin-right: 10px;
+      }
+
+      .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(3) {
+        transform: rotate(-1deg) scale(0.9);
+      }
+
+      .wpshop-event--wpgpt-1 .wpshop-event__content-item p {
+        font-size: 8px;
+      }
+
+    }
+
+    /* ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ */
+    /* ЗДЕСЬ ЗАКАНЧИВАЕТСЯ КОД ДЛЯ РЕДАКТИРОВАНИЯ СТИЛЕЙ */
+  </style>
 
 
-      /* ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ */
-      /* ЗДЕСЬ ЗАКАНЧИВАЕТСЯ КОД ДЛЯ РЕДАКТИРОВАНИЯ СТИЛЕЙ */
-   </style>
+  <!--noindex-->
+  <div data-u="#" class="wpshop-event hide js-wpshop-event wpshop-event--wpgpt-1">
+    <div class="wpshop-event__close" onclick="wpshop_event_close('wpgpt-1');return false;">&times;</div>
 
+    <!-- КОД ДЛЯ РЕДАКТИРОВАНИЯ НИЖЕ -->
+    <!-- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ -->
 
-   <!--noindex-->
-   <div data-u="#" class="wpshop-event hide js-wpshop-event wpshop-event--summer-promo-templates">
-      <div class="wpshop-event__close" onclick="wpshop_event_close('summer-promo-templates');return false;">&times;
+    <div class="wpshop-event__header">
+      <p>AI-плагин от WPShop.ru</p>
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="0 0 26 26">
+          <path fill="#ff4a79" fill-opacity=".3"
+            d="M10.862 1.306c.644-1.741 3.107-1.741 3.751 0l2.262 6.112a2 2 0 0 0 1.181 1.181l6.112 2.262c1.742.644 1.742 3.107 0 3.752l-6.112 2.261a2 2 0 0 0-1.181 1.182l-2.262 6.112c-.644 1.741-3.107 1.741-3.751 0L8.6 18.056a2 2 0 0 0-1.182-1.182l-6.112-2.261c-1.74-.645-1.74-3.108 0-3.752L7.418 8.6A2 2 0 0 0 8.6 7.418z" />
+          <path stroke="#fff" stroke-opacity=".25"
+            d="M11.33 1.479c.483-1.306 2.331-1.306 2.815 0l2.26 6.112a2.5 2.5 0 0 0 1.478 1.478l6.112 2.26c1.306.484 1.306 2.332 0 2.815l-6.112 2.26a2.5 2.5 0 0 0-1.478 1.478l-2.26 6.113c-.484 1.305-2.332 1.305-2.815 0l-2.26-6.113a2.5 2.5 0 0 0-1.478-1.477l-6.113-2.261c-1.305-.483-1.305-2.331 0-2.814l6.113-2.261A2.5 2.5 0 0 0 9.069 7.59z" />
+        </svg>
+      </span>
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="0 0 26 26">
+          <path fill="#ff4a79" fill-opacity=".3"
+            d="M10.862 1.306c.644-1.741 3.107-1.741 3.751 0l2.262 6.112a2 2 0 0 0 1.181 1.181l6.112 2.262c1.742.644 1.742 3.107 0 3.752l-6.112 2.261a2 2 0 0 0-1.181 1.182l-2.262 6.112c-.644 1.741-3.107 1.741-3.751 0L8.6 18.056a2 2 0 0 0-1.182-1.182l-6.112-2.261c-1.74-.645-1.74-3.108 0-3.752L7.418 8.6A2 2 0 0 0 8.6 7.418z" />
+          <path stroke="#fff" stroke-opacity=".25"
+            d="M11.33 1.479c.483-1.306 2.331-1.306 2.815 0l2.26 6.112a2.5 2.5 0 0 0 1.478 1.478l6.112 2.26c1.306.484 1.306 2.332 0 2.815l-6.112 2.26a2.5 2.5 0 0 0-1.478 1.478l-2.26 6.113c-.484 1.305-2.332 1.305-2.815 0l-2.26-6.113a2.5 2.5 0 0 0-1.478-1.477l-6.113-2.261c-1.305-.483-1.305-2.331 0-2.814l6.113-2.261A2.5 2.5 0 0 0 9.069 7.59z" />
+        </svg>
+      </span>
+    </div>
+    <div class="wpshop-event__content">
+      <div class="wpshop-event__content-item">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="13" fill="none" viewBox="0 0 16 13">
+            <path stroke="#000" stroke-linecap="round" stroke-linejoin="round"
+              d="M11.167 12.5v-1.333A2.667 2.667 0 0 0 8.5 8.5H3.167A2.667 2.667 0 0 0 .5 11.167V12.5M5.833 5.833a2.667 2.667 0 1 0 0-5.333 2.667 2.667 0 0 0 0 5.333M15.166 12.5v-1.333a2.666 2.666 0 0 0-2-2.58M10.5.587a2.667 2.667 0 0 1 0 5.166" />
+          </svg>
+        </span>
+        <p>анализирует конкурентов</p>
+        <span class="wpshop-event__content-item-back">
+          <svg width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M42.479 0.467794C43.9076 -0.718004 46.0404 0.513384 45.7278 2.3435L42.0323 23.9772C41.934 24.5526 42.092 25.1422 42.4648 25.5914L56.4821 42.479C57.6679 43.9076 56.4365 46.0404 54.6064 45.7278L32.9726 42.0323C32.3972 41.934 31.8076 42.092 31.3585 42.4648L14.4709 56.4821C13.0423 57.6679 10.9094 56.4365 11.2221 54.6064L14.9176 32.9726C15.0159 32.3972 14.8579 31.8076 14.4851 31.3585L0.467786 14.4709C-0.718012 13.0423 0.513376 10.9094 2.34349 11.2221L23.9772 14.9176C24.5526 15.0159 25.1422 14.8579 25.5914 14.4851L42.479 0.467794Z"
+              fill="#FFB6EA" fill-opacity="0.1" />
+            <path
+              d="M42.7983 0.852123C43.8697 -0.0368678 45.4689 0.886589 45.2349 2.25886L41.54 23.8929C41.4172 24.6121 41.614 25.3493 42.08 25.9107L56.0973 42.7981C56.9867 43.8695 56.0631 45.4691 54.6906 45.2346L33.0566 41.5398C32.3374 41.417 31.6009 41.6144 31.0395 42.0802L14.1514 56.0971C13.0799 56.9864 11.4803 56.0629 11.7148 54.6903L15.4105 33.0568C15.5333 32.3376 15.3352 31.6007 14.8692 31.0393L0.852367 14.1511C-0.0364719 13.0797 0.886795 11.4804 2.25911 11.7146L23.8926 15.4102C24.6118 15.5331 25.3495 15.3354 25.911 14.8694L42.7983 0.852123Z"
+              stroke="#EFDCFF" stroke-opacity="0.1" />
+          </svg>
+        </span>
+        <span>
+          <svg class="wpshop-event__content-item-arrow" width="32" height="32" viewBox="0 0 32 32" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M0.0900858 4.1781C-0.0681164 4.40443 -0.0128855 4.71616 0.213448 4.87436C0.439781 5.03256 0.751508 4.97733 0.90971 4.751L0.499898 4.46455L0.0900858 4.1781ZM26.4465 31.4604L31.1119 28.0592L25.8337 25.7195L26.4465 31.4604ZM0.499898 4.46455L0.90971 4.751C2.69143 2.20197 5.65272 1.00435 9.065 0.99993C12.4803 0.995502 16.2999 2.19175 19.6802 4.37529C26.4328 8.73718 31.3268 16.954 27.7985 27.181L28.2712 27.3441L28.7439 27.5071C32.4566 16.7454 27.2658 8.08478 20.2228 3.5353C16.7054 1.26316 12.6996 -0.00478315 9.0637 -6.90217e-05C5.4248 0.00464898 2.10916 1.2895 0.0900858 4.1781L0.499898 4.46455Z"
+              fill="CurrentColor" />
+          </svg>
+        </span>
       </div>
-
-      <!-- КОД ДЛЯ РЕДАКТИРОВАНИЯ НИЖЕ -->
-      <!-- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ -->
-
-      <div class="wpshop-event__subtext">
-         <p>Пора действовать!</p>
+      <div class="wpshop-event__content-item content-accent">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="11" fill="none" viewBox="0 0 16 11">
+            <path stroke="#ff2b65" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M14.146 3.921H1M14.146 1H1M14.146 6.843H1M14.146 9.764H1" />
+          </svg>
+        </span>
+        <p>пишет статьи</p>
+        <span>
+          <svg class="wpshop-event__content-item-arrow" xmlns="http://www.w3.org/2000/svg" width="56" height="17"
+            fill="none" viewBox="0 0 56 17">
+            <path fill="CurrentColor"
+              d="M55.878.828a.5.5 0 1 0-.756-.656L55.5.5zM0 10.5l3.349 4.703 2.398-5.251zM55.5.5l-.378-.328C47.942 8.445 28.19 21.62 4.284 11.908l-.188.463-.188.463C28.357 22.767 48.537 9.285 55.878.828z" />
+          </svg>
+        </span>
       </div>
-      <div class="wpshop-event__header">
-         <div class="wpshop-event__header-img"></div>
-         <p>Скидки на<br><span>WordPress!</span></p>
+      <div class="wpshop-event__content-item">
+        <p>готовит SEO</p>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="11" fill="none" viewBox="0 0 16 11">
+            <path stroke="#000" stroke-linecap="round" stroke-linejoin="round"
+              d="M14.61.5 8.855 7.361l-3.612-3.03L.697 9.748" />
+            <path stroke="#000" stroke-linecap="round" stroke-linejoin="round" d="M10.626.849 14.611.5l.348 3.985" />
+          </svg>
+        </span>
+        <span>
+          <svg class="wpshop-event__content-item-arrow" xmlns="http://www.w3.org/2000/svg" width="33" height="32"
+            fill="none" viewBox="0 0 33 32">
+            <path fill="CurrentColor"
+              d="M10.153.877a.5.5 0 0 0-.657-.754L9.825.5zM32.026 28.36l-5.268-2.362.589 5.744zM9.824.501 9.497.122c-3.534 3.084-6.287 6.596-7.9 10.103C-.013 13.73-.5 17.272.577 20.373c1.084 3.116 3.711 5.686 8.118 7.305 4.397 1.614 10.591 2.294 18.898 1.64l-.04-.498-.039-.499c-8.229.648-14.264-.036-18.474-1.582-4.2-1.542-6.557-3.929-7.518-6.695-.966-2.78-.558-6.045.984-9.4C4.046 7.29 6.703 3.888 10.153.877z" />
+          </svg>
+        </span>
       </div>
-
-      <div class="wpshop-event__text">
-         <p><span>-20%</span><br>на премиум темы</p>
+      <div class="wpshop-event__content-item">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 13 13">
+            <path stroke="#000" stroke-linecap="round" stroke-linejoin="round"
+              d="M11.167.5H1.833C1.097.5.5 1.097.5 1.833v9.334c0 .736.597 1.333 1.333 1.333h9.334c.736 0 1.333-.597 1.333-1.333V1.833C12.5 1.097 11.903.5 11.167.5" />
+            <path stroke="#000" stroke-linecap="round" stroke-linejoin="round"
+              d="M4.167 5.167a1 1 0 1 0 0-2 1 1 0 0 0 0 2M12.5 8.5 9.166 5.167 1.833 12.5" />
+          </svg>
+        </span>
+        <p>генерирует изображения</p>
+        <span class="wpshop-event__content-item-back">
+          <svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" fill="none" viewBox="0 0 54 54">
+            <path fill="#ff9dd4" fill-opacity=".1"
+              d="M40.086.468c1.429-1.186 3.562.045 3.25 1.875l-3.467 20.29a2 2 0 0 0 .433 1.615l13.146 15.839c1.186 1.428-.045 3.56-1.875 3.248l-20.29-3.466a2 2 0 0 0-1.615.433L13.83 53.449c-1.43 1.185-3.562-.046-3.25-1.876l3.467-20.29a2 2 0 0 0-.433-1.614L.467 13.829c-1.185-1.428.046-3.56 1.876-3.248l20.29 3.466a2 2 0 0 0 1.614-.433z" />
+            <path stroke="#efdcff" stroke-opacity=".1"
+              d="M40.406.852c1.071-.889 2.67.035 2.437 1.407l-3.467 20.29a2.5 2.5 0 0 0 .54 2.018l13.147 15.839c.89 1.071-.034 2.67-1.407 2.436l-20.29-3.466a2.5 2.5 0 0 0-2.017.54L13.511 53.064c-1.072.89-2.672-.034-2.437-1.406l3.466-20.29a2.5 2.5 0 0 0-.54-2.018L.851 13.51c-.89-1.071.034-2.67 1.407-2.436l20.29 3.466a2.5 2.5 0 0 0 2.018-.54z" />
+          </svg>
+        </span>
       </div>
+      <div class="wpshop-event__text">и еще кое-что...</div>
+    </div>
+
+    <div class="wpshop-event__title">WPGPT</div>
+    <div class="wpshop-event__subtitle">Плагин, который наполняет ваш сайт WordPress</div>
+
+
+    <div class="wpshop-event__cta"><span>Узнать больше</span><span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="8" fill="none" viewBox="0 0 26 8">
+          <path fill="#000"
+            d="M25.354 4.036a.5.5 0 0 0 0-.708L22.172.146a.5.5 0 1 0-.707.708l2.828 2.828-2.828 2.828a.5.5 0 1 0 .707.708zM0 3.682v.5h25v-1H0z" />
+        </svg>
+      </span>
+    </div>
+
+    <div class="wpshop-event__background back-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="77" height="77" fill="none" viewBox="0 0 77 77">
+        <path fill="#fe5ea1" fill-opacity=".21"
+          d="M46.22.844c1.075-1.513 3.453-.873 3.623.976l2.484 27.159a2 2 0 0 0 .833 1.448L75.394 46.22c1.514 1.075.873 3.453-.976 3.622L47.26 52.326a2 2 0 0 0-1.449.834L30.02 75.394c-1.076 1.513-3.454.873-3.623-.976l-2.484-27.159a2 2 0 0 0-.833-1.448L.845 30.018c-1.514-1.075-.873-3.453.976-3.622l27.158-2.484a2 2 0 0 0 1.449-.834z" />
+        <path stroke="#ffdcf5" stroke-opacity=".23"
+          d="M46.628 1.133c.806-1.134 2.59-.654 2.716.732l2.485 27.16a2.5 2.5 0 0 0 1.041 1.81l22.235 15.792c1.135.807.654 2.59-.733 2.717l-27.158 2.484a2.5 2.5 0 0 0-1.81 1.042L29.61 75.104c-.807 1.135-2.59.655-2.717-.732L24.41 47.214a2.5 2.5 0 0 0-1.042-1.81L1.134 29.61c-1.135-.806-.654-2.59.732-2.716l27.158-2.484a2.5 2.5 0 0 0 1.811-1.042z" />
+      </svg>
+    </div>
+    <div class="wpshop-event__background back-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="0 0 26 26">
+        <path fill="#ff9dce" fill-opacity=".21"
+          d="M13.905.844c1.075-1.513 3.453-.873 3.622.976l.615 6.726a2 2 0 0 0 .834 1.448l5.506 3.911c1.514 1.075.873 3.453-.976 3.622l-6.725.615a2 2 0 0 0-1.449.834l-3.91 5.506c-1.076 1.514-3.454.873-3.623-.976l-.615-6.725a2 2 0 0 0-.834-1.449l-5.506-3.91c-1.513-1.076-.873-3.454.976-3.623l6.726-.615a2 2 0 0 0 1.448-.834z" />
+        <path stroke="#ffd1ec" stroke-opacity=".2"
+          d="M14.313 1.133c.806-1.134 2.59-.654 2.717.732l.615 6.726a2.5 2.5 0 0 0 1.041 1.81l5.506 3.912c1.135.806.655 2.59-.732 2.716l-6.725.616a2.5 2.5 0 0 0-1.81 1.041l-3.911 5.506c-.807 1.136-2.59.655-2.717-.732l-.615-6.725a2.5 2.5 0 0 0-1.043-1.81l-5.506-3.911C0 10.207.48 8.424 1.865 8.297l6.726-.615a2.5 2.5 0 0 0 1.811-1.042z" />
+      </svg>
+    </div>
+
+    <!-- ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ -->
+    <!-- ЗДЕСЬ ЗАКАНЧИВАЕТСЯ КОД ДЛЯ РЕДАКТИРОВАНИЯ, НИЖЕ ТЕХНИЧЕСКАЯ ИНФОРМАЦИЯ -->
+  </div>
+
+  <!--/noindex-->
 
 
 
-      <div class="wpshop-event__cta">Успей купить &#8921;</div>
-
-
-      <!-- ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ -->
-      <!-- ЗДЕСЬ ЗАКАНЧИВАЕТСЯ КОД ДЛЯ РЕДАКТИРОВАНИЯ, НИЖЕ ТЕХНИЧЕСКАЯ ИНФОРМАЦИЯ -->
-
-   </div>
-   <!--/noindex-->
 
 
 
 
 
+  <!-- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ -->
+
+  <!-- Базовый скрипт, в нем инициализация виджета, его удалять нельзя -->
+  <!-- По таймауту из переменной wpshop_event_timeout у блока js-wpshop-event удаляется класс hide -->
+  <!-- Там же скрипт закрытия окна и клика по виджету (переход по псевдоссылке) -->
+  <script src="https://wpshop.ru/tools/widget/base-script.js"></script>
 
 
 
-   <!-- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ -->
+  <!-- Ниже расположена рыба сайта, для проверки работы виджета с разными элементами под ним -->
+  <!-- Код ниже редактировать не нужно и он в итоговый виджет не пойдет -->
 
-   <!-- Базовый скрипт, в нем инициализация виджета, его удалять нельзя -->
-   <!-- По таймауту из переменной wpshop_event_timeout у блока js-wpshop-event удаляется класс hide -->
-   <!-- Там же скрипт закрытия окна и клика по виджету (переход по псевдоссылке) -->
-   <script src="https://wpshop.ru/tools/widget/base-script.js"></script>
+  <style>
+    h2 {
+      margin-top: 40px;
+    }
 
+    code {
+      background: #ffe7c7;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
 
+    .site-example {
+      max-width: 1600px;
+      margin: 30px auto 0;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+    }
 
-   <!-- Ниже расположена рыба сайта, для проверки работы виджета с разными элементами под ним -->
-   <!-- Код ниже редактировать не нужно и он в итоговый виджет не пойдет -->
+    .site-example-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 20px;
+      margin-bottom: 20px;
+      background: #edf6fc;
+    }
 
-   <style>
-      h2 {
-         margin-top: 40px;
-      }
+    .site-example-logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
 
-      code {
-         background: #ffe7c7;
-         padding: 2px 5px;
-         border-radius: 3px;
-      }
+    nav ul {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
-      .site-example {
-         max-width: 1600px;
-         margin: 30px auto 0;
-         padding: 20px;
-         border: 1px solid #ccc;
-         border-radius: 5px;
-         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
-      }
-
-      .site-example-header {
-         display: flex;
-         justify-content: space-between;
-         align-items: center;
-         padding: 30px 20px;
-         margin-bottom: 20px;
-         background: #edf6fc;
-      }
-
-      .site-example-logo {
-         font-size: 24px;
-         font-weight: bold;
-      }
-
+    @media (max-width: 768px) {
       nav ul {
-         display: flex;
-         list-style: none;
-         padding: 0;
-         margin: 0;
+        flex-direction: column;
       }
+    }
 
-      @media (max-width: 768px) {
-         nav ul {
-            flex-direction: column;
-         }
-      }
+    nav ul li {
+      margin-right: 20px;
+    }
 
-      nav ul li {
-         margin-right: 20px;
-      }
+    nav ul li a {
+      text-decoration: none;
+      color: #000;
+    }
 
-      nav ul li a {
-         text-decoration: none;
-         color: #000;
-      }
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
 
-      nav ul li a:hover {
-         text-decoration: underline;
-      }
+    main {
+      display: flex;
+      justify-content: space-between;
+    }
 
+    @media (max-width: 768px) {
       main {
-         display: flex;
-         justify-content: space-between;
+        flex-direction: column;
       }
+    }
 
-      @media (max-width: 768px) {
-         main {
-            flex-direction: column;
-         }
-      }
+    .site-example-content {
+      flex: 2;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
 
-      .site-example-content {
-         flex: 2;
-         padding-left: 30px;
-         padding-right: 30px;
-      }
+    /* ol beautiful styles */
+    ol {
+      counter-reset: item;
+      list-style: none;
+      padding: 0;
+    }
 
-      /* ol beautiful styles */
-      ol {
-         counter-reset: item;
-         list-style: none;
-         padding: 0;
-      }
+    ol li {
+      position: relative;
+      counter-increment: item;
+      margin-bottom: 0.6em;
+      padding: 10px 0 10px 50px;
+    }
 
-      ol li {
-         position: relative;
-         counter-increment: item;
-         margin-bottom: 0.6em;
-         padding: 10px 0 10px 50px;
-      }
+    ol li:before {
+      position: absolute;
+      top: .3em;
+      left: 0;
+      content: counters(item, ".");
+      display: inline-block;
+      width: 2em;
+      height: 2em;
+      text-align: center;
+      padding-top: .4em;
+      background: #064eea;
+      color: white;
+      border-radius: 999px;
+      box-sizing: border-box;
+    }
 
-      ol li:before {
-         position: absolute;
-         top: .3em;
-         left: 0;
-         content: counters(item, ".");
-         display: inline-block;
-         width: 2em;
-         height: 2em;
-         text-align: center;
-         padding-top: .4em;
-         background: #064eea;
-         color: white;
-         border-radius: 999px;
-         box-sizing: border-box;
-      }
+    .site-example-sidebar {
+      flex: 1;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
 
-      .site-example-sidebar {
-         flex: 1;
-         padding: 20px;
-         border: 1px solid #ccc;
-         border-radius: 5px;
-         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
+    .site-example-widget {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
 
-      .site-example-widget {
-         margin-top: 20px;
-         padding: 20px;
-         border: 1px solid #ccc;
-         border-radius: 5px;
-         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
+    .site-example-widget--dark {
+      background: #244256;
+      color: #fff;
+    }
 
-      .site-example-widget--dark {
-         background: #244256;
-         color: #fff;
-      }
+    footer {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #ccc;
+      text-align: center;
+    }
 
-      footer {
-         margin-top: 20px;
-         padding-top: 20px;
-         border-top: 1px solid #ccc;
-         text-align: center;
-      }
+    .site-example-footer-menu {
+      display: flex;
+      justify-content: space-around;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+  <div class="site-example">
+    <header class="site-example-header">
+      <div class="site-example-logo">WordPress Уроки</div>
+      <nav>
+        <ul>
+          <li><a href="#">Главная</a></li>
+          <li><a href="#">Уроки</a></li>
+          <li><a href="#">Плагины</a></li>
+          <li><a href="#">Темы</a></li>
+          <li><a href="#">О нас</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="site-example-content">
+        <p>Справа внизу стандартный виджет с базовыми настройками — цвета, положение, скрипты появления и
+          закрытия
+          окна. Все базовые стили можно менять, с помощью переменных CSS и просто с помощью свойств. Вы можете
+          выбрать любое положение виджета и расположение. Единственное, он не должен быть слишком большим, не
+          должен быть по центру и не должен перекрывать много контента.</p>
 
-      .site-example-footer-menu {
-         display: flex;
-         justify-content: space-around;
-         list-style: none;
-         padding: 0;
-         margin: 0;
-      }
-   </style>
-   <div class="site-example">
-      <header class="site-example-header">
-         <div class="site-example-logo">WordPress Уроки</div>
-         <nav>
-            <ul>
-               <li><a href="#">Главная</a></li>
-               <li><a href="#">Уроки</a></li>
-               <li><a href="#">Плагины</a></li>
-               <li><a href="#">Темы</a></li>
-               <li><a href="#">О нас</a></li>
-            </ul>
-         </nav>
-      </header>
-      <main>
-         <div class="site-example-content">
-            <p>Справа внизу стандартный виджет с базовыми настройками — цвета, положение, скрипты появления и закрытия
-               окна. Все базовые стили можно менять, с помощью переменных CSS и просто с помощью свойств. Вы можете
-               выбрать любое положение виджета и расположение. Единственное, он не должен быть слишком большим, не
-               должен быть по центру и не должен перекрывать много контента.</p>
+        <h1>Требования к виджету:</h1>
+        <ol>
+          <li>Виджет должен быть компактного размера и может размещаться у края экрана. Не выводим его как попап
+            посередине.</li>
+          <li>Можно экспериментировать с расположением и делать слева, справа. Снизу на всю ширину, но небольшой
+            по
+            высоте. Либо сверху.</li>
+          <li>У виджета есть обязательные элементы, которые в коде отдельно выделены, их нужно оставить как
+            есть,
+            тк весь виджет работает на своем движке.</li>
+          <li>В идеале картинки использовать SVG, чтобы размещать сразу в HTML, без внешних файлов. <a
+              href="https://jakearchibald.github.io/svgomg/" target="_blank">Оптимизируйте SVG</a> перед
+            добавлением.</li>
+          <li>Все картинки должны быть свободными для коммерческого использования, ссылку на картинку
+            обязательно
+            нужно предоставить с результатом.</li>
+        </ol>
 
-            <h1>Требования к виджету:</h1>
-            <ol>
-               <li>Виджет должен быть компактного размера и может размещаться у края экрана. Не выводим его как попап
-                  посередине.</li>
-               <li>Можно экспериментировать с расположением и делать слева, справа. Снизу на всю ширину, но небольшой по
-                  высоте. Либо сверху.</li>
-               <li>У виджета есть обязательные элементы, которые в коде отдельно выделены, их нужно оставить как есть,
-                  тк весь виджет работает на своем движке.</li>
-               <li>В идеале картинки использовать SVG, чтобы размещать сразу в HTML, без внешних файлов. <a
-                     href="https://jakearchibald.github.io/svgomg/" target="_blank">Оптимизируйте SVG</a> перед
-                  добавлением.</li>
-               <li>Все картинки должны быть свободными для коммерческого использования, ссылку на картинку обязательно
-                  нужно предоставить с результатом.</li>
-            </ol>
+        <h2>Чек-лист для проверки виджета:</h2>
+        <ol>
+          <li>Виджет должен хорошо смотреться на мобильных 320px.</li>
+          <li>Виджет должен быть достаточно компактным и не перекрывать сильно контент.</li>
+          <li>На виджете должна быть анимация, чтобы привлекать внимание.</li>
+          <li>На виджете обязательно должна быть кнопка закрытия</li>
+        </ol>
 
-            <h2>Чек-лист для проверки виджета:</h2>
-            <ol>
-               <li>Виджет должен хорошо смотреться на мобильных 320px.</li>
-               <li>Виджет должен быть достаточно компактным и не перекрывать сильно контент.</li>
-               <li>На виджете должна быть анимация, чтобы привлекать внимание.</li>
-               <li>На виджете обязательно должна быть кнопка закрытия</li>
-            </ol>
+        <h2>Техническая информация по коду</h2>
+        <ol>
+          <li>Основной, родительской блок виджета — <code>.wpshop-event</code>.</li>
+          <li>У него есть дата-атрибут <code>data-u="#"</code>, в котором будет ссылка, это вставит потом сам
+            движок</li>
+          <li>Мы ему меняем только класс-модификатор <code>wpshop-event--{{КОД_СОБЫТИЯ}}</code></li>
+          <li>И для этого модификатора мы пишем все стили, которые меняем,
+            например:<br><code>.wpshop-event--new-year .wpshop-event__header { ... }</code></li>
+          <li><code>{{КОД_СОБЫТИЯ}}</code> — это название маркетингового события на латинице и со знаком
+            минус,<br>например, black-friday, wpgpt-1, spring, new-year.</li>
+          <li>У блока обязательно должен быть элемент <code>.wpshop-event__close</code>, он закрывает наш виджет
+            по
+            крестику, у него тоже нужно поменять {{КОД_СОБЫТИЯ}}.</li>
+          <li>У виджета по умолчанию задана высота в CSS-переменной <code>--wpshop-event-height</code>, можно
+            установить в <code>auto</code>.</li>
+        </ol>
 
-            <h2>Техническая информация по коду</h2>
-            <ol>
-               <li>Основной, родительской блок виджета — <code>.wpshop-event</code>.</li>
-               <li>У него есть дата-атрибут <code>data-u="#"</code>, в котором будет ссылка, это вставит потом сам
-                  движок</li>
-               <li>Мы ему меняем только класс-модификатор <code>wpshop-event--{{КОД_СОБЫТИЯ}}</code></li>
-               <li>И для этого модификатора мы пишем все стили, которые меняем,
-                  например:<br><code>.wpshop-event--new-year .wpshop-event__header { ... }</code></li>
-               <li><code>{{КОД_СОБЫТИЯ}}</code> — это название маркетингового события на латинице и со знаком
-                  минус,<br>например, black-friday, 8-march, spring, new-year.</li>
-               <li>У блока обязательно должен быть элемент <code>.wpshop-event__close</code>, он закрывает наш виджет по
-                  крестику, у него тоже нужно поменять {{КОД_СОБЫТИЯ}}.</li>
-               <li>У виджета по умолчанию задана высота в CSS-переменной <code>--wpshop-event-height</code>, можно
-                  установить в <code>auto</code>.</li>
-            </ol>
+      </div>
+      <div class="site-example-sidebar">
+        <h2>Сайдбар</h2>
+        <p>Часто в сайдбаре бывают баннеры, ссылки, картинки, поэтому он заполнен различными элементами для
+          проверки.</p>
 
-         </div>
-         <div class="site-example-sidebar">
-            <h2>Сайдбар</h2>
-            <p>Часто в сайдбаре бывают баннеры, ссылки, картинки, поэтому он заполнен различными элементами для
-               проверки.</p>
+        <div class="site-example-widget">
+          <h3>Виджет</h3>
+          <p>WordPress — свободное программное обеспечение, которое поможет вам создать красивый сайт, блог или
+            веб-приложение.</p>
+        </div>
 
-            <div class="site-example-widget">
-               <h3>Виджет</h3>
-               <p>WordPress — свободное программное обеспечение, которое поможет вам создать красивый сайт, блог или
-                  веб-приложение.</p>
-            </div>
+        <div class="site-example-widget site-example-widget--dark">
+          <h3>Виджет</h3>
+          <p>WordPress — свободное программное обеспечение, которое поможет вам создать красивый сайт, блог или
+            веб-приложение.</p>
+        </div>
 
-            <div class="site-example-widget site-example-widget--dark">
-               <h3>Виджет</h3>
-               <p>WordPress — свободное программное обеспечение, которое поможет вам создать красивый сайт, блог или
-                  веб-приложение.</p>
-            </div>
+        <div class="site-example-widget site-example-widget--dark" style="background: #2e5b10;">
+          <h3>Виджет</h3>
+          <p>WordPress — свободное программное обеспечение, которое поможет вам создать красивый сайт, блог или
+            веб-приложение.</p>
+        </div>
 
-            <div class="site-example-widget site-example-widget--dark" style="background: #2e5b10;">
-               <h3>Виджет</h3>
-               <p>WordPress — свободное программное обеспечение, которое поможет вам создать красивый сайт, блог или
-                  веб-приложение.</p>
-            </div>
+        <div class="site-example-widget site-example-widget--dark" style="background: #5b1046;">
+          <h3>Виджет</h3>
+          <p>WordPress — свободное программное обеспечение, которое поможет вам создать красивый сайт, блог или
+            веб-приложение.</p>
+        </div>
 
-            <div class="site-example-widget site-example-widget--dark" style="background: #5b1046;">
-               <h3>Виджет</h3>
-               <p>WordPress — свободное программное обеспечение, которое поможет вам создать красивый сайт, блог или
-                  веб-приложение.</p>
-            </div>
+        <div class="site-example-widget">
+          <h3>Виджет</h3>
+          <p>WordPress — свободное программное обеспечение, которое поможет вам создать красивый сайт, блог или
+            веб-приложение.</p>
+        </div>
 
-            <div class="site-example-widget">
-               <h3>Виджет</h3>
-               <p>WordPress — свободное программное обеспечение, которое поможет вам создать красивый сайт, блог или
-                  веб-приложение.</p>
-            </div>
-
-            <div class="site-example-widget" style="background: #ffdd79;">
-               <h3>Виджет</h3>
-               <p>WordPress — свободное программное обеспечение, которое поможет вам создать красивый сайт, блог или
-                  веб-приложение.</p>
-            </div>
-         </div>
-      </main>
-      <footer>
-         <div class="site-example-footer-menu">
-            <a href="#">Главная</a>
-            <a href="#">Уроки</a>
-            <a href="#">Плагины</a>
-            <a href="#">Темы</a>
-            <a href="#">О нас</a>
-         </div>
-         <p>© 2024 WordPress Уроки</p>
-      </footer>
-   </div>
+        <div class="site-example-widget" style="background: #ffdd79;">
+          <h3>Виджет</h3>
+          <p>WordPress — свободное программное обеспечение, которое поможет вам создать красивый сайт, блог или
+            веб-приложение.</p>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="site-example-footer-menu">
+        <a href="#">Главная</a>
+        <a href="#">Уроки</a>
+        <a href="#">Плагины</a>
+        <a href="#">Темы</a>
+        <a href="#">О нас</a>
+      </div>
+      <p>© 2024 WordPress Уроки</p>
+    </footer>
+  </div>
 
 </body>
 
