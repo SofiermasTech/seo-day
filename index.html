@@ -96,6 +96,11 @@
       position: relative;
     }
 
+    .wpshop-event--wpgpt-1 .wpshop-event__content-wrapper {
+      position: relative;
+      z-index: 5;
+    }
+
     .wpshop-event--wpgpt-1 .wpshop-event__content-item {
       padding: 6px 12px;
       background-color: rgba(255, 255, 255, 0.9);
@@ -103,17 +108,21 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      position: relative;
-      z-index: 5;
+
     }
 
-    .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(1) {
+    .wpshop-event--wpgpt-1 .wpshop-event__content-wrapper:nth-child(1) {
       margin-right: auto;
       margin-left: 12px;
       transform: rotate(-6deg);
     }
 
-    .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(1) .wpshop-event__content-item-back {
+    .wpshop-event--wpgpt-1 .wpshop-event__content-wrapper:nth-child(1) .wpshop-event__content-item {
+      animation: wpshop-event-scale-1 4s ease-out infinite;
+      animation-fill-mode: both;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__content-wrapper:nth-child(1) .wpshop-event__content-item-back {
       position: absolute;
       left: 50%;
       top: 50%;
@@ -121,51 +130,68 @@
       z-index: 1;
     }
 
-    .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(4) .wpshop-event__content-item-back {
-      position: absolute;
-      left: -36px;
-      bottom: -20px;
-
-      z-index: -1;
-    }
-
-    .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(2) {
+    .wpshop-event--wpgpt-1 .wpshop-event__content-wrapper:nth-child(2) {
       margin-left: auto;
       margin-right: 8px;
       transform: rotate(2deg);
     }
 
-    .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(3) {
+    .wpshop-event--wpgpt-1 .wpshop-event__content-wrapper:nth-child(2) .wpshop-event__content-item {
+      animation: wpshop-event-scale-2 4s ease-out infinite;
+      animation-fill-mode: both;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__content-wrapper:nth-child(3) {
       margin-right: auto;
       margin-left: 16px;
       transform: rotate(-3deg);
     }
 
-    .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(4) {
+    .wpshop-event--wpgpt-1 .wpshop-event__content-wrapper:nth-child(3) .wpshop-event__content-item {
+      animation: wpshop-event-scale-3 4s ease-out infinite;
+      animation-fill-mode: both;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__content-wrapper:nth-child(4) {
       margin-left: auto;
       margin-right: 20px;
       transform: rotate(-3deg);
     }
 
-    .wpshop-event--wpgpt-1 .wpshop-event__content-item .wpshop-event__content-item-arrow {
+    .wpshop-event--wpgpt-1 .wpshop-event__content-wrapper:nth-child(4) .wpshop-event__content-item {
+      animation: wpshop-event-scale-4 4s ease-out infinite;
+      animation-fill-mode: both;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__content-wrapper .wpshop-event__content-item-arrow {
       position: absolute;
       z-index: -1;
     }
 
-    .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(1) .wpshop-event__content-item-arrow {
+    .wpshop-event--wpgpt-1 .wpshop-event__content-wrapper:nth-child(1) .wpshop-event__content-item-arrow {
       right: -36px;
       top: 50%;
+      animation: wpshop-event-arrow-1 4s ease-out infinite;
     }
 
-    .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(2) .wpshop-event__content-item-arrow {
+    .wpshop-event--wpgpt-1 .wpshop-event__content-wrapper:nth-child(2) .wpshop-event__content-item-arrow {
       right: 30%;
       bottom: -28px;
-      transform: rotate(-4deg);
+      /* transform: rotate(-4deg); */
+      animation: wpshop-event-arrow-2 4s ease-out infinite;
     }
 
-    .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(3) .wpshop-event__content-item-arrow {
+    .wpshop-event--wpgpt-1 .wpshop-event__content-wrapper:nth-child(3) .wpshop-event__content-item-arrow {
       left: -8px;
       bottom: -36px;
+      animation: wpshop-event-arrow-3 4s ease-out infinite;
+    }
+
+    .wpshop-event--wpgpt-1 .wpshop-event__content-wrapper:nth-child(4) .wpshop-event__content-item-back {
+      position: absolute;
+      left: -36px;
+      bottom: -20px;
+      z-index: -1;
     }
 
     .wpshop-event--wpgpt-1 .wpshop-event__content-item p {
@@ -197,6 +223,8 @@
       font-size: 10px;
       text-align: center;
       color: #fff;
+      animation: wpshop-event-scale-5 4s ease-out infinite;
+      animation-fill-mode: both;
     }
 
     .wpshop-event--wpgpt-1 .wpshop-event__title {
@@ -288,6 +316,171 @@
       }
     }
 
+    @keyframes wpshop-event-scale-1 {
+
+      0% {
+        opacity: 0;
+        transform: scale(1.3);
+      }
+
+      15%,
+      20% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      25%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes wpshop-event-arrow-1 {
+
+      0%,
+      15% {
+        opacity: 0;
+      }
+
+      21%,
+      25% {
+        opacity: 1;
+      }
+
+      26%,
+      100% {
+        opacity: 1;
+      }
+    }
+
+
+    @keyframes wpshop-event-scale-2 {
+
+      0%,
+      10% {
+        opacity: 0;
+        transform: scale(1.3);
+      }
+
+      25%,
+      30% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      35%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes wpshop-event-arrow-2 {
+
+      0%,
+      25% {
+        opacity: 0;
+        transform: scale(0.7);
+      }
+
+      26%,
+      31% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      36%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes wpshop-event-scale-3 {
+
+      0%,
+      20% {
+        opacity: 0;
+        transform: scale(1.3);
+      }
+
+      35%,
+      40% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      45%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes wpshop-event-arrow-3 {
+
+      0%,
+      35% {
+        opacity: 0;
+        transform: scale(0.7);
+      }
+
+      36%,
+      41% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      46%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes wpshop-event-scale-4 {
+
+      0%,
+      30% {
+        opacity: 0;
+        transform: scale(1.3);
+      }
+
+      45%,
+      50% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      55%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes wpshop-event-scale-5 {
+
+      0%,
+      45% {
+        opacity: 0;
+        transform: scale(1.3);
+      }
+
+      50%,
+      55% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      60%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
     @media screen and (max-width: 1024px) {
       .wpshop-event--wpgpt-1 {
         height: 380px;
@@ -365,19 +558,19 @@
         height: 12px;
       }
 
-      .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(1) {
+      .wpshop-event--wpgpt-1 .wpshop-event__content-wrapper:nth-child(1) {
         width: 100%;
         margin-left: -4px;
         transform: rotate(1deg) scale(0.9);
       }
 
-      .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(2) {
+      .wpshop-event--wpgpt-1 .wpshop-event__content-wrapper:nth-child(2) {
         margin-right: 16px;
         transform: rotate(0deg);
         margin-top: 0;
       }
 
-      .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(1) .wpshop-event__content-item-arrow {
+      .wpshop-event--wpgpt-1 .wpshop-event__content-wrapper:nth-child(1) .wpshop-event__content-item-arrow {
         width: 24px;
         height: 24px;
         right: 85%;
@@ -386,25 +579,45 @@
         transform-origin: center;
       }
 
-      .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(2) .wpshop-event__content-item-arrow {
+      .wpshop-event--wpgpt-1 .wpshop-event__content-wrapper:nth-child(2) .wpshop-event__content-item-arrow {
         width: 24px;
         height: 24px;
         right: 10%;
         bottom: -26px;
-        transform: rotate(-22deg);
       }
 
-      .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(3) .wpshop-event__content-item-arrow {
+      @keyframes wpshop-event-arrow-2 {
+
+        0%,
+        25% {
+          opacity: 0;
+          transform:  rotate(-22deg) scale(0.7);
+        }
+
+        26%,
+        31% {
+          opacity: 1;
+          transform:  rotate(-22deg) scale(1);
+        }
+
+        36%,
+        100% {
+          opacity: 1;
+          transform:  rotate(-22deg) scale(1);
+        }
+      }
+
+      .wpshop-event--wpgpt-1 .wpshop-event__content-wrapper:nth-child(3) .wpshop-event__content-item-arrow {
         display: none;
       }
 
-      .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(3) {
+      .wpshop-event--wpgpt-1 .wpshop-event__content-wrapper:nth-child(3) {
         margin-left: 8px;
         transform: rotate(-1deg);
         margin-top: 0px;
       }
 
-      .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(4) {
+      .wpshop-event--wpgpt-1 .wpshop-event__content-wrapper:nth-child(4) {
         margin-top: 0;
         margin-left: -12px;
         transform: rotate(-2deg) scale(0.8);
@@ -478,7 +691,7 @@
         margin-top: 16px;
       }
 
-       .wpshop-event--wpgpt-1 .wpshop-event__title {
+      .wpshop-event--wpgpt-1 .wpshop-event__title {
         font-size: 24px;
       }
 
@@ -494,11 +707,11 @@
         padding: 4px 6px;
       }
 
-      .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(2) {
+      .wpshop-event--wpgpt-1 .wpshop-event__content-wrapper:nth-child(2) {
         margin-right: 10px;
       }
 
-      .wpshop-event--wpgpt-1 .wpshop-event__content-item:nth-child(3) {
+      .wpshop-event--wpgpt-1 .wpshop-event__content-wrapper:nth-child(3) {
         transform: rotate(-1deg) scale(0.9);
       }
 
@@ -540,14 +753,16 @@
       </span>
     </div>
     <div class="wpshop-event__content">
-      <div class="wpshop-event__content-item">
-        <span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="13" fill="none" viewBox="0 0 16 13">
-            <path stroke="#000" stroke-linecap="round" stroke-linejoin="round"
-              d="M11.167 12.5v-1.333A2.667 2.667 0 0 0 8.5 8.5H3.167A2.667 2.667 0 0 0 .5 11.167V12.5M5.833 5.833a2.667 2.667 0 1 0 0-5.333 2.667 2.667 0 0 0 0 5.333M15.166 12.5v-1.333a2.666 2.666 0 0 0-2-2.58M10.5.587a2.667 2.667 0 0 1 0 5.166" />
-          </svg>
-        </span>
-        <p>анализирует конкурентов</p>
+      <div class="wpshop-event__content-wrapper">
+        <div class="wpshop-event__content-item">
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="13" fill="none" viewBox="0 0 16 13">
+              <path stroke="#000" stroke-linecap="round" stroke-linejoin="round"
+                d="M11.167 12.5v-1.333A2.667 2.667 0 0 0 8.5 8.5H3.167A2.667 2.667 0 0 0 .5 11.167V12.5M5.833 5.833a2.667 2.667 0 1 0 0-5.333 2.667 2.667 0 0 0 0 5.333M15.166 12.5v-1.333a2.666 2.666 0 0 0-2-2.58M10.5.587a2.667 2.667 0 0 1 0 5.166" />
+            </svg>
+          </span>
+          <p>анализирует конкурентов</p>
+        </div>
         <span class="wpshop-event__content-item-back">
           <svg width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -567,14 +782,16 @@
           </svg>
         </span>
       </div>
-      <div class="wpshop-event__content-item content-accent">
-        <span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="11" fill="none" viewBox="0 0 16 11">
-            <path stroke="#ff2b65" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M14.146 3.921H1M14.146 1H1M14.146 6.843H1M14.146 9.764H1" />
-          </svg>
-        </span>
-        <p>пишет статьи</p>
+      <div class="wpshop-event__content-wrapper">
+        <div class="wpshop-event__content-item content-accent">
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="11" fill="none" viewBox="0 0 16 11">
+              <path stroke="#ff2b65" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M14.146 3.921H1M14.146 1H1M14.146 6.843H1M14.146 9.764H1" />
+            </svg>
+          </span>
+          <p>пишет статьи</p>
+        </div>
         <span>
           <svg class="wpshop-event__content-item-arrow" xmlns="http://www.w3.org/2000/svg" width="56" height="17"
             fill="none" viewBox="0 0 56 17">
@@ -583,15 +800,17 @@
           </svg>
         </span>
       </div>
-      <div class="wpshop-event__content-item">
-        <p>готовит SEO</p>
-        <span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="11" fill="none" viewBox="0 0 16 11">
-            <path stroke="#000" stroke-linecap="round" stroke-linejoin="round"
-              d="M14.61.5 8.855 7.361l-3.612-3.03L.697 9.748" />
-            <path stroke="#000" stroke-linecap="round" stroke-linejoin="round" d="M10.626.849 14.611.5l.348 3.985" />
-          </svg>
-        </span>
+      <div class="wpshop-event__content-wrapper">
+        <div class="wpshop-event__content-item">
+          <p>готовит SEO</p>
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="11" fill="none" viewBox="0 0 16 11">
+              <path stroke="#000" stroke-linecap="round" stroke-linejoin="round"
+                d="M14.61.5 8.855 7.361l-3.612-3.03L.697 9.748" />
+              <path stroke="#000" stroke-linecap="round" stroke-linejoin="round" d="M10.626.849 14.611.5l.348 3.985" />
+            </svg>
+          </span>
+        </div>
         <span>
           <svg class="wpshop-event__content-item-arrow" xmlns="http://www.w3.org/2000/svg" width="33" height="32"
             fill="none" viewBox="0 0 33 32">
@@ -600,16 +819,18 @@
           </svg>
         </span>
       </div>
-      <div class="wpshop-event__content-item">
-        <span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 13 13">
-            <path stroke="#000" stroke-linecap="round" stroke-linejoin="round"
-              d="M11.167.5H1.833C1.097.5.5 1.097.5 1.833v9.334c0 .736.597 1.333 1.333 1.333h9.334c.736 0 1.333-.597 1.333-1.333V1.833C12.5 1.097 11.903.5 11.167.5" />
-            <path stroke="#000" stroke-linecap="round" stroke-linejoin="round"
-              d="M4.167 5.167a1 1 0 1 0 0-2 1 1 0 0 0 0 2M12.5 8.5 9.166 5.167 1.833 12.5" />
-          </svg>
-        </span>
-        <p>генерирует изображения</p>
+      <div class="wpshop-event__content-wrapper">
+        <div class="wpshop-event__content-item">
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 13 13">
+              <path stroke="#000" stroke-linecap="round" stroke-linejoin="round"
+                d="M11.167.5H1.833C1.097.5.5 1.097.5 1.833v9.334c0 .736.597 1.333 1.333 1.333h9.334c.736 0 1.333-.597 1.333-1.333V1.833C12.5 1.097 11.903.5 11.167.5" />
+              <path stroke="#000" stroke-linecap="round" stroke-linejoin="round"
+                d="M4.167 5.167a1 1 0 1 0 0-2 1 1 0 0 0 0 2M12.5 8.5 9.166 5.167 1.833 12.5" />
+            </svg>
+          </span>
+          <p>генерирует изображения</p>
+        </div>
         <span class="wpshop-event__content-item-back">
           <svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" fill="none" viewBox="0 0 54 54">
             <path fill="#ff9dd4" fill-opacity=".1"
@@ -623,7 +844,7 @@
     </div>
 
     <div class="wpshop-event__title">WPGPT</div>
-    <div class="wpshop-event__subtitle">Плагин, который наполняет ваш сайт WordPress</div>
+    <div class="wpshop-event__subtitle">Плагин, который наполняет ваш&nbsp;сайт WordPress</div>
 
 
     <div class="wpshop-event__cta"><span>Узнать больше</span><span>
